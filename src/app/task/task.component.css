@@ -1,0 +1,33 @@
+.task {
+  font-size: 0.8rem;
+  border-bottom: 1px solid lightgrey;
+}
+
+p {
+  margin: 0px;
+  margin-left: 20px;
+}
+
+p.task-label {
+  margin-top: 15px
+}
+
+.task-buttons {
+  padding: 20px;
+}
+
+.delete-button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.edit-button {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.mark-button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}

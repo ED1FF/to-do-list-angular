@@ -5,10 +5,11 @@ import { Component, Input } from '@angular/core';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
 })
+
 export class TaskListComponent {
+  @Input() tasks:any = [];
 
-  @Input() tasks = [];
-
-  constructor() { }
-
+  onDelete(task) {
+    this.tasks = this.tasks.filter((item) => item.id != task.id )
+  }
 }

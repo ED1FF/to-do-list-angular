@@ -1,3 +1,8 @@
-<app-task-form (onCreate)="onCreate($event);"></app-task-form>
-<app-task-list [tasks]="tasks"></app-task-list>
-<app-task [tasks]="tasks"></app-task>
+<div class="row no-gutters">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+    <app-task-list [tasks]="tasks"></app-task-list>
+  </div>
+  <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+    <app-task-form (onCreate)="onCreate($event);"></app-task-form>
+  </div>
+</div>
