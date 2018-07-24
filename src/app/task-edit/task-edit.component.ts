@@ -10,9 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TaskEditComponent {
 
-  taskForm = new FormGroup ({
-    name: new FormControl()
-  });
+  taskForm: FormGroup;
 
   @Output() onCancel: EventEmitter<any> = new EventEmitter();
   @Input() task:any = {};

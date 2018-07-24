@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 
 export class TaskListComponent {
   @Input() tasks:any = [];
+  @Input() done: boolean;
 
   onDelete(task) {
     this.tasks = this.tasks.filter((item) => item.id != task.id )

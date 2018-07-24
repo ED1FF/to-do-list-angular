@@ -5,11 +5,11 @@
   <form [formGroup]="taskForm" novalidate (ngSubmit)='update()'>
     <div class="form-group">
       <label>Name:</label>
-      <input class="form-control" formControlName="name" type="text" value="{{task.name}}">
+      <input class="form-control" formControlName="name" type="text" [(ngModel)]="task.name">
     </div>
     <div class="form-group">
       <label>Description:</label>
-      <input class="form-control" formControlName="description" type="text" value="{{task.description}}">
+      <input class="form-control" formControlName="description" type="text" [(ngModel)]="task.description">
     </div>
     <button type="submit" class="btn btn-success">
               Update
