@@ -13,7 +13,8 @@ import { TaskListComponent } from './task-list/task-list.component'
 import { TaskAPI } from './api/task';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskComponent } from './task/task.component';
-import { TaskEditComponent } from './task-edit/task-edit.component'
+import { TaskEditComponent } from './task-edit/task-edit.component';
+import { FilterByPipe } from './pipes/filter-by.pipe'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TaskEditComponent } from './task-edit/task-edit.component'
     TaskListComponent,
     TaskFormComponent,
     TaskComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    FilterByPipe
   ],
   imports: [
     BrowserModule,

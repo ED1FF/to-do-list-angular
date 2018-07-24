@@ -1,13 +1,14 @@
 <div class="task">
-  <app-task-edit [task]='task'></app-task-edit>
-  <div class="task-info">
+  <app-task-edit [task]='task' [hidden]='!show' (onCancel)='show = !show'></app-task-edit>
+  <div class="task-info" [hidden]='show'>
     <p class="task-label"><b>Name</b></p>
     <p>{{task.name}}</p>
-    <p class="task-label"><b>Description</b></p>
+    <p class="task-label"><b>Description </b></p>
     <p>{{task.description}}</p>
+    <p>{{task.created_at | date: 'short'}}</p>
     <div class="task-buttons">
-      <button type="button" class="btn btn-primary btn-sm edit-button" (click)='showEdit()'>Edit</button>
-      <button type="button" class="btn btn-success btn-sm mark-button">Mark as done</button>
+      <button type="button" class="btn btn-primary btn-sm edit-button" (click)="show = !show">Edit</button>
+      <button type="button" class="btn btn-success btn-sm mark-button" (click)='markAsDone()' [ngClass]="{ 'marked-button': task.done }">{{task.done ? 'Mark as undone' : 'Mark as done'}}</button>
       <button type="button" class="btn btn-danger btn-sm delete-button" (click)='delete()'>Delete</button>
     </div>
   </div>

@@ -1,6 +1,9 @@
 <div class="row no-gutters">
   <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-    <app-task-list [tasks]="tasks"></app-task-list>
+    <h1 class="text-center">Active tasks</h1>
+    <app-task-list [tasks]="tasks | filterBy:'done':false"></app-task-list>
+    <h1 class="text-center">Done tasks</h1>
+    <app-task-list [tasks]="tasks | filterBy:done:true"></app-task-list>
   </div>
   <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
     <app-task-form (onCreate)="onCreate($event);"></app-task-form>

@@ -1,5 +1,5 @@
 import { Component, Input , Output, EventEmitter } from '@angular/core';
-import { TaskAPI } from '../api/task'
+import { TaskAPI } from '../api/task';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -25,13 +25,10 @@ export class TaskComponent {
     }
   }
 
-  showEdit() {
-    console.log(this)
-  }
-
   markAsDone() {
-    this.taskAPI.update(this.task.id, { task: [] }).subscribe(() => {
-      this.toastr.error('Task was Deleted!');
+    this.taskAPI.update(this.task.id, { task: {'done': !this.task.done} }).subscribe((data) => {
+      Object.assign(this.task, data);
+      this.toastr.success('Task has been done!');
     });
   }
 }

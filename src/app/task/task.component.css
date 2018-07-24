@@ -31,3 +31,7 @@ p.task-label {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
+
+.marked-button {
+  background: orange;
+}
