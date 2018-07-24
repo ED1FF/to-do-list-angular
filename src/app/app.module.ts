@@ -12,7 +12,8 @@ import { AppRoutingModule } from './routes';
 import { TaskListComponent } from './task-list/task-list.component'
 import { TaskAPI } from './api/task';
 import { TaskFormComponent } from './task-form/task-form.component';
-import { TaskComponent } from './task/task.component'
+import { TaskComponent } from './task/task.component';
+import { TaskEditComponent } from './task-edit/task-edit.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TaskComponent } from './task/task.component'
     TasksComponent,
     TaskListComponent,
     TaskFormComponent,
-    TaskComponent
+    TaskComponent,
+    TaskEditComponent
   ],
   imports: [
     BrowserModule,

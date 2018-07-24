@@ -21,6 +21,7 @@ export class TaskFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private taskAPI: TaskAPI, private toastr: ToastrService) {
     this.createForm();
   }
+
   createForm() {
     this.taskForm = this.fb.group({
       name: ['', Validators.required],
