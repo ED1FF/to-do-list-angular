@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { TaskAPI } from '../api/task'
 
 @Component({
@@ -6,9 +6,11 @@ import { TaskAPI } from '../api/task'
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
+
 export class TasksComponent implements OnInit {
 
-  tasks:any = []
+  tasks:any = [];
+  done:boolean;
 
   constructor(private taskAPI: TaskAPI) { }
 
@@ -24,5 +26,9 @@ export class TasksComponent implements OnInit {
 
   onCreate(task) {
     this.tasks.unshift(task);
+  }
+
+  onDestroy(task) {
+    this.tasks = this.tasks.filter((item) => item.id != task.id )
   }
 }

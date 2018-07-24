@@ -30,7 +30,7 @@ export class TaskEditComponent {
     this.taskAPI.update(this.task.id, { task: this.taskForm.value }).subscribe((data) => {
       this.onCancel.emit(this.task)
       Object.assign(this.task, data);
-      this.toastr.success('Task was Deleted!');
+      this.toastr.success('Task was updated!');
     });
   }
 

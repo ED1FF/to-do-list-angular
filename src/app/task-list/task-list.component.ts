@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
@@ -9,8 +9,9 @@ import { Component, Input } from '@angular/core';
 export class TaskListComponent {
   @Input() tasks:any = [];
   @Input() done: boolean;
+  @Output() onDestroy: EventEmitter<any> = new EventEmitter();
 
   onDelete(task) {
-    this.tasks = this.tasks.filter((item) => item.id != task.id )
+    this.onDestroy.emit(task)
   }
 }
