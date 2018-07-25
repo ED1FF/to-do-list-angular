@@ -14,7 +14,8 @@ import { TaskAPI } from './api/task';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskComponent } from './task/task.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
-import { FilterByPipe } from './pipes/filter-by.pipe'
+import { FilterByPipe } from './pipes/filter-by.pipe';
+import { TaskShowComponent } from './task-show/task-show.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FilterByPipe } from './pipes/filter-by.pipe'
     TaskFormComponent,
     TaskComponent,
     TaskEditComponent,
-    FilterByPipe
+    FilterByPipe,
+    TaskShowComponent
   ],
   imports: [
     BrowserModule,

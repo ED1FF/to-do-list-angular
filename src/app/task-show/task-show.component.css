@@ -1,0 +1,18 @@
+
+p {
+  margin: 0px;
+  margin-left: 20px;
+}
+
+p.task-label {
+  margin-top: 15px
+}
+
+p.task-time {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+  margin: 10px 0px 10px 20px;
+}

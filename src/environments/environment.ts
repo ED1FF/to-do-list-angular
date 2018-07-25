@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_endpoint: 'https://task-manager-react-rails.herokuapp.com'
+  // api_endpoint: 'https://task-manager-react-rails.herokuapp.com'
+  api_endpoint: 'http://localhost:3000'
 };
 
 /*
