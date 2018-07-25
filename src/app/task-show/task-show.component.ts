@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskAPI } from '../api/task';
 import { ActivatedRoute } from '@angular/router';
+import {BackButtonDirective} from "../back-button.directive";
 
 @Component({
   selector: 'app-task-show',

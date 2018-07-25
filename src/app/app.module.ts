@@ -15,7 +15,8 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskComponent } from './task/task.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { FilterByPipe } from './pipes/filter-by.pipe';
-import { TaskShowComponent } from './task-show/task-show.component'
+import { TaskShowComponent } from './task-show/task-show.component';
+import { BackButtonDirective } from './back-button.directive'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TaskShowComponent } from './task-show/task-show.component'
     TaskComponent,
     TaskEditComponent,
     FilterByPipe,
-    TaskShowComponent
+    TaskShowComponent,
+    BackButtonDirective
   ],
   imports: [
     BrowserModule,
