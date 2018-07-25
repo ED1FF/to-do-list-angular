@@ -1,5 +1,5 @@
 <div class="task-list" [hidden]='!tasks.length'>
-  <h1 class="text-center">{{done ? 'Done tasks' : 'Active tasks'}}</h1>
+  <h1 class="text-center component-label">{{done ? 'Done tasks' : 'Active tasks'}}</h1>
   <div class="tasks">
     <app-task *ngFor="let task of tasks" [task]='task' (onDelete)='onDelete($event)'></app-task>
   </div>
