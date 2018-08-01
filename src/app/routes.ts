@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksComponent } from './tasks/tasks.component';
+import { TaskShowComponent } from './task-show/task-show.component'
 
 const routes: Routes = [
   {
@@ -10,7 +11,16 @@ const routes: Routes = [
   },
   {
     path: 'tasks',
-    component: TasksComponent
+    children: [
+      {
+        path: '',
+        component: TasksComponent
+      },
+      {
+        path: ':id',
+        component: TaskShowComponent
+      }
+    ]
   }
 ];
 

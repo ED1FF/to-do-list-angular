@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">
+  <h1 class="text-center component-label">
     Create a new task
   </h1>
   <form [formGroup]="taskForm" novalidate (ngSubmit)='create()'>
@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
       <label>Description:</label>
-      <input class="form-control" formControlName="description" type="text">
+      <input class="form-control" formControlName="description" type="text" id="description">
     </div>
     <div *ngIf="taskForm.controls['description'].invalid && (taskForm.controls['description'].dirty || taskForm.controls['description'].touched)" class="alert alert-danger">
       <div *ngIf="taskForm.controls['description'].errors.required">
