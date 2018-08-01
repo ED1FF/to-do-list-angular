@@ -6,17 +6,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 
+import { TaskAPI } from './api/task';
+import { UserAPI } from './api/user'
+
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { AppRoutingModule } from './routes';
 import { TaskListComponent } from './task-list/task-list.component'
-import { TaskAPI } from './api/task';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskComponent } from './task/task.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { FilterByPipe } from './pipes/filter-by.pipe';
 import { TaskShowComponent } from './task-show/task-show.component';
-import { BackButtonDirective } from './back-button.directive'
+import { BackButtonDirective } from './back-button.directive';
+import { SignUpComponent } from './sign-up/sign-up.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { BackButtonDirective } from './back-button.directive'
     TaskEditComponent,
     FilterByPipe,
     TaskShowComponent,
-    BackButtonDirective
+    BackButtonDirective,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ import { BackButtonDirective } from './back-button.directive'
     AppRoutingModule,
     FormsModule
   ],
-  providers: [TaskAPI],
+  providers: [TaskAPI, UserAPI],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

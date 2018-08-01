@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskShowComponent } from './task-show/task-show.component'
+import { SignUpComponent } from './sign-up/sign-up.component'
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
         component: TaskShowComponent
       }
     ]
+  },
+  {
+    path: 'sign_up',
+    component: SignUpComponent,
   }
 ];
 
