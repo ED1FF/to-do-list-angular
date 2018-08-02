@@ -8,7 +8,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
-import { AuthGuardService } from './auth/auth-guard.service'
+import { AuthGuardService } from './auth/auth-guard.service';
+import { SignInGuardService } from './auth/sign-in-guard.service';
 import { TaskAPI } from './api/task';
 import { UserAPI } from './api/user';
 
@@ -53,6 +54,7 @@ import { SignInComponent } from './sign-in/sign-in.component'
     TaskAPI,
     UserAPI,
     AuthGuardService,
+    SignInGuardService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,
