@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -9,7 +10,7 @@ import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { AuthGuardService } from './auth/auth-guard.service'
 import { TaskAPI } from './api/task';
-import { UserAPI } from './api/user'
+import { UserAPI } from './api/user';
 
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -45,7 +46,8 @@ import { SignInComponent } from './sign-in/sign-in.component'
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CustomFormsModule
   ],
   providers: [
     TaskAPI,

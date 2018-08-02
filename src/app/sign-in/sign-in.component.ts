@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { UserAPI } from '../api/user';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { CustomValidators } from 'ng2-validation';
 
 @Component({
   selector: 'app-sign-in',
@@ -20,8 +21,8 @@ export class SignInComponent {
 
   createForm() {
     this.signInForm = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.required, CustomValidators.email]],
+      password: ['', [Validators.required, CustomValidators.rangeLength([8, 24])]]
     });
   }
 
