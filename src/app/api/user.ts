@@ -10,4 +10,8 @@ export class UserAPI {
   signUp(params) {
     return this.http.post(`${environment.api_endpoint}/users`, params);
   }
+
+  signIn(params) {
+    return this.http.post(`${environment.api_endpoint}/sessions`, params);
+  }
 }
