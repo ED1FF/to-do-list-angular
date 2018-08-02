@@ -2,7 +2,6 @@ import { Component, Input , Output, EventEmitter } from '@angular/core';
 import { TaskAPI } from '../api/task';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',

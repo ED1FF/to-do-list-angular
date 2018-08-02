@@ -1,38 +1,56 @@
-<div class="container my-auto">
-  <h1 class="text-center component-label">
-    Sign Up
-  </h1>
-  <form [formGroup]="signUpForm" novalidate (ngSubmit)='submit()'>
-    <div class="form-group">
-      <label>Email:</label>
-      <input class="form-control" formControlName="email" type='email' ngModel email="true">
-    </div>
-    <div *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)" class="alert alert-danger">
-      <div *ngIf="signUpForm.controls['email'].errors.required">
-        Email is required.
+<div class="col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 mx-auto">
+  <div class="container my-auto">
+    <h1 class="text-center component-label">
+      Sign Up
+    </h1>
+    <form [formGroup]="signUpForm" novalidate (ngSubmit)='submit()'>
+      <div class="form-group">
+        <label>Email:</label>
+        <input class="form-control" formControlName="email" type='email' ngModel email="true">
       </div>
-    </div>
-    <div class="form-group">
-      <label>Password:</label>
-      <input class="form-control" formControlName="password" type="password">
-    </div>
-    <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)" class="alert alert-danger">
-      <div *ngIf="signUpForm.controls['password'].errors.required">
-        Password is required.
+      <div *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="signUpForm.controls['email'].errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="signUpForm.controls['email'].errors.email">
+          Email doesn't look good
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label>Password confirmation:</label>
-      <input class="form-control" formControlName="password_confirmation" type="password">
-    </div>
-    <div *ngIf="signUpForm.controls['password_confirmation'].invalid && (signUpForm.controls['password_confirmation'].dirty || signUpForm.controls['password_confirmation'].touched)" class="alert alert-danger">
-      <div *ngIf="signUpForm.controls['password_confirmation'].errors.required">
-        Password is required.
+      <div class="form-group">
+        <label>Password:</label>
+        <input class="form-control" formControlName="password" type="password">
       </div>
-    </div>
-    <button type="submit" [disabled]="signUpForm.pristine || signUpForm.invalid" class="btn btn-success">
-      Create
-    </button>
-  </form>
-  <br />
+      <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)" class="alert alert-danger">
+        <div *ngIf="signUpForm.controls['password'].errors.required">
+          Password is required.
+        </div>
+        <div *ngIf="signUpForm.controls['password'].errors.rangeLength">
+          Password must contain minimum 8 characters.
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input class="form-control" formControlName="password_confirmation" type="password">
+      </div>
+      <div *ngIf="signUpForm.controls['password_confirmation'].invalid && (signUpForm.controls['password_confirmation'].dirty || signUpForm.controls['password_confirmation'].touched)" class="alert alert-danger">
+        <div *ngIf="signUpForm.controls['password_confirmation'].errors.required">
+          Password is required.
+        </div>
+        <div *ngIf="signUpForm.controls['password_confirmation'].errors.equalTo">
+          Confirmation password is not match with Password
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-6">
+          <button type="submit" [disabled]="signUpForm.pristine || signUpForm.invalid" class="btn btn-success">
+            Sign Up
+          </button>
+        </div>
+        <div class="col-6">
+          <button type="button" routerLink="/sign_in" class="btn btn-primary">Sign in</button>
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
 </div>

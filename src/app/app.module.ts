@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
-import { AuthGuardService } from './auth/auth-guard.service'
+import { AuthGuardService } from './auth/auth-guard.service';
+import { SignInGuardService } from './auth/sign-in-guard.service';
 import { TaskAPI } from './api/task';
-import { UserAPI } from './api/user'
+import { UserAPI } from './api/user';
 
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -21,7 +23,8 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
 import { FilterByPipe } from './pipes/filter-by.pipe';
 import { TaskShowComponent } from './task-show/task-show.component';
 import { BackButtonDirective } from './back-button.directive';
-import { SignUpComponent } from './sign-up/sign-up.component'
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './sign-in/sign-in.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { SignUpComponent } from './sign-up/sign-up.component'
     FilterByPipe,
     TaskShowComponent,
     BackButtonDirective,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +47,14 @@ import { SignUpComponent } from './sign-up/sign-up.component'
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CustomFormsModule
   ],
   providers: [
     TaskAPI,
     UserAPI,
     AuthGuardService,
+    SignInGuardService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,
