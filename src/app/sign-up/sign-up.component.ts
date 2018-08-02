@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserAPI } from '../api/user';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +14,7 @@ export class SignUpComponent implements OnInit {
   signUpForm:FormGroup;
   user:any = {};
 
-  constructor(public fb: FormBuilder, public userApi: UserAPI, public router: Router) {
+  constructor(public fb: FormBuilder, public userApi: UserAPI, public router: Router, public auth: AuthService) {
     this.createForm();
   }
 
@@ -30,7 +31,7 @@ export class SignUpComponent implements OnInit {
 
   submit() {
     this.userApi.signUp({ user: this.signUpForm.value }).subscribe((data) => {
-      localStorage.setItem('authToken', data['token'] );
+      this.auth.saveToken(data['token'])
       this.router.navigateByUrl('')
     })
   }
