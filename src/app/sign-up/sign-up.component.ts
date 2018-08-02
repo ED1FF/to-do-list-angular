@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 
-export class SignUpComponent implements OnInit {
+export class SignUpComponent {
   signUpForm:FormGroup;
   user:any = {};
 
@@ -26,13 +26,10 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
   submit() {
     this.userApi.signUp({ user: this.signUpForm.value }).subscribe((data) => {
-      this.auth.saveToken(data['token'])
-      this.router.navigateByUrl('')
+      this.auth.saveToken(data['token']);
+      this.router.navigateByUrl('');
     })
   }
 }

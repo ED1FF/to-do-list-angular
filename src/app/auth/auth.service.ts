@@ -4,7 +4,7 @@ import { STORAGE_KEYS } from '../constants/constants'
 @Injectable()
 export class AuthService {
 
-  public getToken(): string {
+  public get getToken() {
     return localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
   }
 
@@ -12,7 +12,7 @@ export class AuthService {
     localStorage.setItem(STORAGE_KEYS.AUTH_TOKEN, token);
   }
 
-  public isAuthenticated(): boolean {
+  public get isAuthenticated() {
     return localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN) != null;
   }
 }
