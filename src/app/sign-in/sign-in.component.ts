@@ -38,6 +38,6 @@ export class SignInComponent {
   }
 
   submitErrorHandler = (error) => {
-    this.toastr.error(error.message);
+    this.toastr.error(error.error['message']);
   }
 }

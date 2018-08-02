@@ -41,6 +41,6 @@ export class SignUpComponent {
   }
 
   submitErrorHandler = (error) => {
-    this.toastr.error(error.message);
+    this.toastr.error(JSON.stringify(error.error.errors));
   }
 }
