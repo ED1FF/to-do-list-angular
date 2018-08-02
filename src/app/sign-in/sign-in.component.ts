@@ -29,7 +29,7 @@ export class SignInComponent {
   submit() {
     this.userApi.signIn(this.signInForm.value).subscribe((data) => {
       this.auth.saveToken(data['token']);
-      this.router.navigateByUrl('');
+      this.router.navigate(['/']);
     })
   }
 }
