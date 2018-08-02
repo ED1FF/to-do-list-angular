@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksComponent } from './tasks/tasks.component';
-import { TaskShowComponent } from './task-show/task-show.component'
+import { TaskShowComponent } from './task-show/task-show.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -11,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'tasks',
+    canActivate: [AuthGuardService],
     children: [
       {
         path: '',
@@ -21,6 +24,10 @@ const routes: Routes = [
         component: TaskShowComponent
       }
     ]
+  },
+  {
+    path: 'sign_up',
+    component: SignUpComponent
   }
 ];
 
