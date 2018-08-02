@@ -4,6 +4,7 @@ import { UserAPI } from '../api/user';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { CustomValidators } from 'ng2-validation';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,7 +16,7 @@ export class SignInComponent {
   signInForm:FormGroup;
   user:any = {};
 
-  constructor(public fb: FormBuilder, public userApi: UserAPI, public router: Router, public auth: AuthService) {
+  constructor(public fb: FormBuilder, public userApi: UserAPI, public router: Router, public auth: AuthService, private toastr: ToastrService) {
     this.createForm();
   }
 
@@ -27,9 +28,16 @@ export class SignInComponent {
   }
 
   submit() {
-    this.userApi.signIn(this.signInForm.value).subscribe((data) => {
-      this.auth.saveToken(data['token']);
-      this.router.navigate(['/']);
-    })
+    this.userApi.signIn(this.signInForm.value).subscribe((data) => this.submitSuccessHandler(data), this.submitErrorHandler)
+  }
+
+  submitSuccessHandler = (data) => {
+    this.auth.saveToken(data['token']);
+    this.router.navigate(['/']);
+    this.toastr.success('You have been successfuly Signed in!');
+  }
+
+  submitErrorHandler = (error) => {
+    this.toastr.error(error.message);
   }
 }
