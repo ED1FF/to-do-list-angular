@@ -9,7 +9,7 @@ export class AuthService {
   }
 
   public saveToken(token) {
-    localStorage.setItem(STORAGE_KEYS.AUTH_TOKEN, token );
+    localStorage.setItem(STORAGE_KEYS.AUTH_TOKEN, token);
   }
 
   public isAuthenticated(): boolean {

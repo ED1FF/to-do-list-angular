@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { AuthGuardService } from './auth/auth-guard.service'
 import { TaskAPI } from './api/task';
 import { UserAPI } from './api/user'
 
@@ -44,7 +45,17 @@ import { SignUpComponent } from './sign-up/sign-up.component'
     AppRoutingModule,
     FormsModule
   ],
-  providers: [TaskAPI, UserAPI, AuthService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [
+    TaskAPI,
+    UserAPI,
+    AuthGuardService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
