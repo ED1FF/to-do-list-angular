@@ -21,7 +21,8 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
 import { FilterByPipe } from './pipes/filter-by.pipe';
 import { TaskShowComponent } from './task-show/task-show.component';
 import { BackButtonDirective } from './back-button.directive';
-import { SignUpComponent } from './sign-up/sign-up.component'
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './sign-in/sign-in.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SignUpComponent } from './sign-up/sign-up.component'
     FilterByPipe,
     TaskShowComponent,
     BackButtonDirective,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
