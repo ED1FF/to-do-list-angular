@@ -8,7 +8,9 @@
         <p class="task-label"><b>Description </b></p>
         <p>{{task.description}}</p>
         <p>{{task.created_at | date: 'short'}}</p>
-        <input type="checkbox" [hidden]='!bulkmode'>
+      </div>
+      <div class="col-1">
+        <input type="checkbox" [hidden]='!bulkmode' [checked]='bulkmode'>
       </div>
     </div>
     <div class="task-buttons">

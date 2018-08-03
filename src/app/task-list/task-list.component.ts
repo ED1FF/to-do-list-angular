@@ -17,4 +17,12 @@ export class TaskListComponent {
   onDelete(task) {
     this.onDestroy.emit(task)
   }
+
+  allChangeStatus(done) {
+    console.log(done)
+  }
+
+  allDelete() {
+    
+  }
 }
