@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { TaskAPI } from '../api/task'
+import { TaskAPI } from '../api/task';
 
 @Component({
   selector: 'app-tasks',
