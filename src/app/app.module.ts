@@ -11,6 +11,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
 import { TokenExpiredInterceptor } from './auth/token-expired.interceptor';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { SignInGuardService } from './auth/sign-in-guard.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { TaskAPI } from './api/task';
 import { UserAPI } from './api/user';
 
@@ -25,7 +26,8 @@ import { FilterByPipe } from './pipes/filter-by.pipe';
 import { TaskShowComponent } from './task-show/task-show.component';
 import { BackButtonDirective } from './back-button.directive';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { SignInComponent } from './sign-in/sign-in.component'
+import { SignInComponent } from './sign-in/sign-in.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { SignInComponent } from './sign-in/sign-in.component'
     TaskShowComponent,
     BackButtonDirective,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { SignInComponent } from './sign-in/sign-in.component'
     ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    MatToolbarModule
   ],
   providers: [
     TaskAPI,
