@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
@@ -11,18 +11,23 @@ export class TaskListComponent {
   @Input() done: boolean;
   @Output() onDestroy: EventEmitter<any> = new EventEmitter();
   bulkmode:boolean;
-  activeTasks:any = {};
-  doneTasks:any = {};
+  tasksSelectedStatus:any = {};
 
   onDelete(task) {
-    this.onDestroy.emit(task)
+    this.onDestroy.emit(task);
   }
 
   allChangeStatus(done) {
-    console.log(done)
+
   }
 
   allDelete() {
-    
+    console.log(this.sortCheckedTasks())
+  }
+
+  sortCheckedTasks() {
+    return Object.keys(this.tasksSelectedStatus).map((key) => {
+      if(this.tasksSelectedStatus[key]) {return key}
+    });
   }
 }

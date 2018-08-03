@@ -10,7 +10,7 @@
         <p>{{task.created_at | date: 'short'}}</p>
       </div>
       <div class="col-1">
-        <input type="checkbox" [hidden]='!bulkmode' [checked]='bulkmode'>
+        <input type="checkbox" *ngIf='bulkmode' [(ngModel)]="tasksSelectedStatus[task.id]">
       </div>
     </div>
     <div class="task-buttons">
