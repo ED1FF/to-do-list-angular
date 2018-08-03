@@ -10,6 +10,9 @@ export class TaskListComponent {
   @Input() tasks:any = [];
   @Input() done: boolean;
   @Output() onDestroy: EventEmitter<any> = new EventEmitter();
+  bulkmode:boolean;
+  activeTasks:any = {};
+  doneTasks:any = {};
 
   onDelete(task) {
     this.onDestroy.emit(task)
