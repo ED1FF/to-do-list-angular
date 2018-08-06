@@ -17,7 +17,7 @@ export class TaskListComponent {
 
   constructor(public bulkApi: BulkTasksAPI) {}
 
-  setObjOfSelectedTask(){
+  selectAll(){
     if (this.bulkmode) {
       Object.keys(this.tasks).forEach((id) => {
         this.selectedTasks[this.tasks[id]['id']] = true;
@@ -31,18 +31,21 @@ export class TaskListComponent {
     this.onDestroy.emit(task);
   }
 
-  allChangeStatus(done) {
-    this.bulkApi.update({'done': !this.done, 'id': this.idsOfSelectedTasks()}).subscribe((data) => {
-      this.idsOfSelectedTasks().forEach((id) => {
-        this.tasks.find(i => i.id === id)['done'] = !this.done
+  markAllAs(done) {
+    let ids = this.idsOfSelectedTasks();
+    this.bulkApi.update({done: !this.done, id: ids}).subscribe((data) => {
+      ids.forEach((id) => {
+        let task = this.tasks.find(i => i.id === id)
+        task['done'] = !this.done
       });
       this.selectedTasks = {};
     });
   }
 
   allDelete() {
-    this.bulkApi.delete({ 'id[]':  this.idsOfSelectedTasks()}).subscribe(() => {
-      this.onAllDestroy.emit(this.idsOfSelectedTasks());
+    let ids = this.idsOfSelectedTasks();
+    this.bulkApi.delete({'id[]': ids}).subscribe(() => {
+      this.onDestroy.emit(ids);
     });
   }
 
