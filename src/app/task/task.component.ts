@@ -11,6 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class TaskComponent {
   @Output() onDelete: EventEmitter<any> = new EventEmitter();
   @Input() task:any = {};
+  @Input() bulkmode:boolean;
+  @Input() selectedTasks = {};
   show:boolean;
 
   constructor (private taskAPI: TaskAPI, private toastr: ToastrService) {}

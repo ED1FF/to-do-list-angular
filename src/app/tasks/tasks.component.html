@@ -2,8 +2,8 @@
 
 <div class="row no-gutters">
   <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-    <app-task-list [tasks]="tasks | filterBy:'done':false" [done]='false' (onDestroy)='onDestroy($event)'></app-task-list>
-    <app-task-list [tasks]="tasks | filterBy:'done':true" [done]='true'></app-task-list>
+    <app-task-list [tasks]="tasks | filterBy:'done':false" [done]='false' (onDestroy)='onDestroy($event); onAllDestroy($event);'></app-task-list>
+    <app-task-list [tasks]="tasks | filterBy:'done':true" [done]='true' (onDestroy)='onDestroy($event); onAllDestroy($event);'></app-task-list>
   </div>
   <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
     <app-task-form (onCreate)="onCreate($event);"></app-task-form>
