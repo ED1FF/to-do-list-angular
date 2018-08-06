@@ -9,8 +9,8 @@
         <p>{{task.description}}</p>
         <p>{{task.created_at | date: 'short'}}</p>
       </div>
-      <div class="col-1">
-        <input type="checkbox" *ngIf='bulkmode' [(ngModel)]="tasksSelectedStatus[task.id]">
+      <div class="col-1 mt-4">
+        <input type="checkbox" *ngIf='bulkmode' [(ngModel)]="selectedTasks[task.id]" >
       </div>
     </div>
     <div class="task-buttons">

@@ -31,4 +31,8 @@ export class TasksComponent implements OnInit {
   onDestroy(task) {
     this.tasks = this.tasks.filter((item) => item.id != task.id )
   }
+
+  onAllDestroy(ids) {
+    this.tasks = this.tasks.filter((item) => !ids.includes(item.id) )
+  }
 }
