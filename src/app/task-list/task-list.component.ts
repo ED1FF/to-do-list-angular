@@ -1,5 +1,6 @@
-import { Component, Input, EventEmitter, Output, AfterViewChecked } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { BulkTasksAPI } from '../api/bulk_tasks';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-list',
@@ -15,13 +16,13 @@ export class TaskListComponent {
   bulkmode:boolean;
   selectedTasks:any = {};
 
-  constructor(public bulkApi: BulkTasksAPI) {}
+  constructor(public bulkApi: BulkTasksAPI, public toastr: ToastrService) {}
 
   selectAll(){
     if (this.bulkmode) {
-      Object.keys(this.tasks).forEach((id) => {
-        this.selectedTasks[this.tasks[id]['id']] = true;
-      })
+      this.tasks.forEach((task) => {
+        this.selectedTasks[task.id] = true;
+      });
     } else {
       this.selectedTasks = {};
     }
@@ -33,20 +34,34 @@ export class TaskListComponent {
 
   markAllAs(done) {
     let ids = this.idsOfSelectedTasks();
-    this.bulkApi.update({done: !this.done, id: ids}).subscribe((data) => {
-      ids.forEach((id) => {
-        let task = this.tasks.find(i => i.id === id)
-        task['done'] = !this.done
-      });
-      this.selectedTasks = {};
+    this.bulkApi.update({done: !this.done, id: ids}).subscribe(() => this.markAllAsSuccessHandler(ids), this.markAllAsErrorHandler);
+  }
+
+  markAllAsSuccessHandler = (ids) => {
+    ids.forEach((id) => {
+      let task = this.tasks.find(i => i.id === id);
+      task['done'] = !this.done;
     });
+    this.selectedTasks = {};
+    this.toastr.success('Tasks has been successfuly updated!');
+  }
+
+  markAllAsErrorHandler = (error) => {
+    this.toastr.error(JSON.stringify(error.error.errors));
   }
 
   allDelete() {
     let ids = this.idsOfSelectedTasks();
-    this.bulkApi.delete({'id[]': ids}).subscribe(() => {
-      this.onDestroy.emit(ids);
-    });
+    this.bulkApi.delete({'id[]': ids}).subscribe(() => this.allDeleteSuccessHandler(ids), this.allDeleteErrorHandler);
+  }
+
+  allDeleteSuccessHandler = (ids) => {
+    this.onDestroy.emit(ids);
+    this.toastr.success('Tasks has been successfuly updated!');
+  }
+
+  allDeleteErrorHandler = (error) => {
+    this.toastr.error(JSON.stringify(error.error.errors));
   }
 
   idsOfSelectedTasks() {

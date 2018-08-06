@@ -1,5 +1,5 @@
 <div class="task">
-  <app-task-edit [task]='task' [hidden]='!show' (onCancel)='show = !show'></app-task-edit>
+  <app-task-edit [task]='task' [hidden]='!show' (onCancel)='show = !show;'></app-task-edit>
   <div class="task-info" [hidden]='show'>
     <div class="row">
       <div class="col-11">
@@ -14,9 +14,9 @@
       </div>
     </div>
     <div class="task-buttons">
-      <button type="button" class="btn btn-primary btn-sm edit-button" (click)="show = !show">Edit</button>
-      <button type="button" class="btn btn-success btn-sm mark-button" (click)='markAsDone()' [ngClass]="{ 'marked-button': task.done }">{{task.done ? 'Mark as undone' : 'Mark as done'}}</button>
-      <button type="button" class="btn btn-danger btn-sm delete-button" (click)='delete()'>Delete</button>
+      <button type="button" class="btn btn-primary btn-sm edit-button" (click)="show = !show;">Edit</button>
+      <button type="button" class="btn btn-success btn-sm mark-button" (click)='markAsDone();' [ngClass]="{ 'marked-button': task.done }">{{task.done ? 'Mark as undone' : 'Mark as done'}}</button>
+      <button type="button" class="btn btn-danger btn-sm delete-button" (click)='delete();'>Delete</button>
     </div>
   </div>
 </div>
