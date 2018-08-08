@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { UserAPI } from '../api/user';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class SignUpComponent {
   signUpForm:FormGroup;
   user:any = {};
+  address: any[] = [];
   password = new FormControl('', [Validators.required, CustomValidators.rangeLength([8, 24])]);
   password_confirmation = new FormControl('', [Validators.required, CustomValidators.equalTo(this.password)]);
 
@@ -27,12 +28,25 @@ export class SignUpComponent {
       email: ['', [Validators.required, CustomValidators.email]],
       password: this.password,
       password_confirmation: this.password_confirmation,
-      address_attributes: this.fb.group({
-        city: ['', [Validators.required]],
-        address: ['', [Validators.required]],
-        zip: ['', [Validators.required, CustomValidators.lt(5)]]
-      })
+      addresses_attributes: this.fb.array([])
     });
+  }
+
+  buildAddress(): FormGroup {
+    return this.fb.group({
+      city: [''],
+      address: [''],
+      zip: ['']
+    })
+  }
+
+  addItem() {
+    this.address = this.signUpForm.get('addresses_attributes') as FormArray;
+    this.address.push(this.buildAddress());
+  }
+
+  removeAddress(index) {
+    this.address.removeAt(index);
   }
 
   submit() {
