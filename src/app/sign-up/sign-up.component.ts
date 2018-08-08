@@ -26,7 +26,12 @@ export class SignUpComponent {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, CustomValidators.email]],
       password: this.password,
-      password_confirmation: this.password_confirmation
+      password_confirmation: this.password_confirmation,
+      address_attributes: this.fb.group({
+        city: ['', [Validators.required]],
+        address: ['', [Validators.required]],
+        zip: ['', [Validators.required, CustomValidators.lt(5)]]
+      })
     });
   }
 
