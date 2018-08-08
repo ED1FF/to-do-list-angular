@@ -5,7 +5,7 @@
     </h1>
     <form [formGroup]="signUpForm" novalidate (ngSubmit)='submit()'>
       <div class="form-group">
-        <label>Email:</label>
+        <label>Email*</label>
         <input class="form-control" formControlName="email" type='email' ngModel email="true">
       </div>
       <div *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)" class="alert alert-danger">
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label>Password:</label>
+        <label>Password*</label>
         <input class="form-control" formControlName="password" type="password">
       </div>
       <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)" class="alert alert-danger">
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label>Password confirmation:</label>
+        <label>Password confirmation*</label>
         <input class="form-control" formControlName="password_confirmation" type="password">
       </div>
       <div *ngIf="signUpForm.controls['password_confirmation'].invalid && (signUpForm.controls['password_confirmation'].dirty || signUpForm.controls['password_confirmation'].touched)" class="alert alert-danger">
@@ -40,6 +40,22 @@
           Confirmation password is not match with Password
         </div>
       </div>
+
+      <div formGroupName='address_attributes'>
+        <div class="form-group">
+           <label for="city">City</label>
+           <input formControlName="city" class="form-control">
+        </div>
+        <div class="form-group">
+           <label for="address">Address</label>
+           <input formControlName="address" class="form-control">
+        </div>
+        <div class="form-group">
+           <label for="zip">Zip-code</label>
+           <input formControlName="zip" class="form-control" type="number">
+        </div>
+      </div>
+
       <div class="row text-center">
         <div class="col-6">
           <button type="submit" [disabled]="signUpForm.pristine || signUpForm.invalid" class="btn btn-success">
