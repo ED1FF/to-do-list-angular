@@ -17,11 +17,11 @@ export class UserEditComponent implements OnInit {
   userEditForm:FormGroup;
   address: any[] = [];
 
-  constructor(public userApi: UserAPI,
-              public fb: FormBuilder,
-              public router: Router,
-              public auth: AuthService,
-              private toastr: ToastrService) { }
+  constructor(private userApi: UserAPI,
+              private fb: FormBuilder,
+              private auth: AuthService,
+              private toastr: ToastrService,
+              public router: Router,) { }
 
   ngOnInit() {
     this.getUser();
@@ -43,23 +43,21 @@ export class UserEditComponent implements OnInit {
   }
 
   addCreatedAddresses() {
-    this.user.addresses.forEach((address) => {
-      this.addAddress(address.city, address.address, address.zip, address.id);
-    });
+    this.user.addresses.forEach(this.addAddress);
   }
 
-  addAddress(city = '', address = '' , zip = '', id = '') {
+  addAddress = (address = {}) => {
     this.address = this.userEditForm.get('addresses_attributes') as FormArray;
-    this.address.push(this.buildAddress(city, address, zip, id));
+    this.address.push(this.buildAddress(address));
   }
 
-  buildAddress(city, address, zip, id): FormGroup {
+  buildAddress(data = {}): FormGroup {
     return this.fb.group({
-      city: [city, [Validators.required]],
-      address: [address, [Validators.required]],
-      zip: [zip, [Validators.required, CustomValidators.lt(5)]],
-      id: [id]
-    })
+      city: [data.city, [Validators.required]],
+      address: [data.address, [Validators.required]],
+      zip: [data.zip, [Validators.required, CustomValidators.lt(5)]],
+      id: [data.id]
+    });
   }
 
   removeAddress(index) {

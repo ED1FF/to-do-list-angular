@@ -14,6 +14,7 @@ import { SignInGuardService } from './auth/sign-in-guard.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TaskAPI } from './api/task';
 import { UserAPI } from './api/user';
+import { SessionAPI } from './api/session';
 import { BulkTasksAPI } from './api/bulk_tasks';
 
 import { AppComponent } from './app.component';
@@ -60,6 +61,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
   ],
   providers: [
     TaskAPI,
+    SessionAPI,
     UserAPI,
     BulkTasksAPI,
     AuthGuardService,

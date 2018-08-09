@@ -40,7 +40,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: UserEditComponent
+    component: UserEditComponent,
+    canActivate: [AuthGuardService]
   }
 ];
 

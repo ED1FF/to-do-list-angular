@@ -19,7 +19,7 @@ export class SignUpComponent {
   password = new FormControl('', [Validators.required, CustomValidators.rangeLength([8, 24])]);
   password_confirmation = new FormControl('', [Validators.required, CustomValidators.equalTo(this.password)]);
 
-  constructor(public fb: FormBuilder, public userApi: UserAPI, public router: Router, public auth: AuthService, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private userApi: UserAPI, private router: Router, private auth: AuthService, private toastr: ToastrService) {
     this.createForm();
   }
 
@@ -50,7 +50,7 @@ export class SignUpComponent {
   }
 
   submit() {
-    this.userApi.signUp({ user: this.signUpForm.value }).subscribe((data) => this.submitSuccessHandler(data), this.submitErrorHandler);
+    this.userApi.create({ user: this.signUpForm.value }).subscribe((data) => this.submitSuccessHandler(data), this.submitErrorHandler);
   }
 
   submitSuccessHandler = (data) => {

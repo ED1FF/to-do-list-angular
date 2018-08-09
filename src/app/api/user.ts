@@ -7,12 +7,8 @@ export class UserAPI {
 
   constructor(public http: HttpClient) {}
 
-  signUp(params) {
+  create(params) {
     return this.http.post(`${environment.api_endpoint}/users`, params);
-  }
-
-  signIn(params) {
-    return this.http.post(`${environment.api_endpoint}/sessions`, params);
   }
 
   get() {
