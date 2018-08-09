@@ -29,6 +29,7 @@ import { BackButtonDirective } from './back-button.directive';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BackButtonDirective,
     SignUpComponent,
     SignInComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

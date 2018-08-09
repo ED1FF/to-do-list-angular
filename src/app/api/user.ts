@@ -14,4 +14,12 @@ export class UserAPI {
   signIn(params) {
     return this.http.post(`${environment.api_endpoint}/sessions`, params);
   }
+
+  get() {
+    return this.http.get(`${environment.api_endpoint}/users`);
+  }
+
+  update(params) {
+    return this.http.patch(`${environment.api_endpoint}/users`, params);
+  }
 }

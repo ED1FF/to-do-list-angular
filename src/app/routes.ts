@@ -6,6 +6,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { SignInGuardService } from './auth/sign-in-guard.service';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     path: 'sign_in',
     component: SignInComponent,
     canActivate: [SignInGuardService]
+  },
+  {
+    path: 'profile',
+    component: UserEditComponent
   }
 ];
 
