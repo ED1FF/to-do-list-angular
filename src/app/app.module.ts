@@ -14,6 +14,7 @@ import { SignInGuardService } from './auth/sign-in-guard.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TaskAPI } from './api/task';
 import { UserAPI } from './api/user';
+import { SessionAPI } from './api/session';
 import { BulkTasksAPI } from './api/bulk_tasks';
 
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { BackButtonDirective } from './back-button.directive';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BackButtonDirective,
     SignUpComponent,
     SignInComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   ],
   providers: [
     TaskAPI,
+    SessionAPI,
     UserAPI,
     BulkTasksAPI,
     AuthGuardService,
