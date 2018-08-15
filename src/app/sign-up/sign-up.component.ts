@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class SignUpComponent {
   signUpForm:FormGroup;
   user:any = {};
-  address: any[] = [];
+  address: any = [];
   password = new FormControl('', [Validators.required, CustomValidators.rangeLength([8, 24])]);
   password_confirmation = new FormControl('', [Validators.required, CustomValidators.equalTo(this.password)]);
 

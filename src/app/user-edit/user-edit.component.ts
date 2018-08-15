@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UserEditComponent implements OnInit {
   user:any = {};
   userEditForm:FormGroup;
-  address: any[] = [];
+  address: any = [];
 
   constructor(private userApi: UserAPI,
               private fb: FormBuilder,
@@ -51,7 +51,7 @@ export class UserEditComponent implements OnInit {
     this.address.push(this.buildAddress(address));
   }
 
-  buildAddress(data = {}): FormGroup {
+  buildAddress(data = <any>{}): FormGroup {
     return this.fb.group({
       city: [data.city, [Validators.required]],
       address: [data.address, [Validators.required]],
