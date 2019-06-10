@@ -16,6 +16,7 @@ import { TaskAPI } from './api/task';
 import { UserAPI } from './api/user';
 import { SessionAPI } from './api/session';
 import { BulkTasksAPI } from './api/bulk_tasks';
+import { ElectronService } from 'ngx-electron';
 
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -64,6 +65,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     SessionAPI,
     UserAPI,
     BulkTasksAPI,
+    ElectronService,
     AuthGuardService,
     SignInGuardService,
     AuthService,

@@ -1,4 +1,4 @@
-<div class="col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 mx-auto">
+<!-- <div class="col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 mx-auto">
   <h1 class="text-center component-label">
     Sign In
   </h1>
@@ -39,4 +39,20 @@
     </div>
   </form>
   <br />
+</div> -->
+<div class="col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 mx-auto text-center">
+  <form [formGroup]="budgeForm" (ngSubmit)='submit()'>
+    <div class="form-group">
+      <label>Value:</label>
+      <input class="form-control" formControlName="value">
+    </div>
+    <div class="row text-center">
+      <div class="col-6">
+        <button type="submit" class="btn btn-success">Add badge to icon</button>
+      </div>
+      <div class="col-6">
+        <button type="button" (click)='removeBadge()' class='btn btn-danger'>Remove badge</button>
+      </div>
+    </div>
+  </form>
 </div>
