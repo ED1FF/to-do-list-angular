@@ -1,0 +1,63 @@
+<div class="col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 mx-auto">
+  <div class="container my-auto">
+    <h1 class="text-center component-label">
+      Profile Page
+    </h1>
+    <form [formGroup]="userEditForm" novalidate (ngSubmit)='submit();'>
+      <div class="form-group">
+        <label>Email*</label>
+        <input class="form-control" formControlName="email" type='email' [(ngModel)]='this.user.email' email="true">
+      </div>
+      <div *ngIf="userEditForm.controls['email'].invalid && (userEditForm.controls['email'].dirty || userEditForm.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="userEditForm.controls['email'].errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="userEditForm.controls['email'].errors.email">
+          Email doesn't look good
+        </div>
+      </div>
+
+      <div formArrayName="addresses_attributes" *ngFor="let address of userEditForm.get('addresses_attributes').controls; let i = index;">
+        <div [formGroupName]="i" [hidden]='address.value["_destroy"]'>
+          <div class="row">
+            <div class="col-6">
+              <h3>Address</h3>
+            </div>
+            <div class="col-6 text-right">
+              <button type="button" class="btn btn-danger" (click)="removeAddress(i);">Remove address</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+             <label for="city">City</label>
+             <input formControlName="city" class="form-control">
+          </div>
+          <div class="form-group">
+             <label for="address">Address</label>
+             <input formControlName="address" class="form-control">
+          </div>
+          <div class="form-group">
+             <label for="zip">Zip-code</label>
+             <input formControlName="zip" class="form-control" type="number">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="button" (click)='addAddress();' class="btn btn-success">Add Address</button>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-6">
+          <button type="submit" [disabled]="userEditForm.pristine || userEditForm.invalid" class="btn btn-success">
+            Save
+          </button>
+        </div>
+        <div class="col-6">
+          <button type="button" routerLink="/tasks" class="btn btn-primary">Back</button>
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>

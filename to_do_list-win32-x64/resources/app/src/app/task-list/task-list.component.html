@@ -1,0 +1,15 @@
+<div class="task-list" [hidden]='!tasks.length'>
+  <h1 class="text-center component-label">{{done ? 'Done tasks' : 'Active tasks'}}</h1>
+
+  <div class="ml-4 mb-3">
+    <input type="checkbox" (click)='bulkmode = !bulkmode; selectAll();'>
+    <span>{{bulkmode ? 'Unselect all' : 'Select All'}}</span>
+    <div class="btn-group ml-4">
+      <button type="button" (click)='markAllAs(done);' class="btn btn-success btn-sm mark-button" [hidden]='!bulkmode'>{{this.done ? 'Mark all as Undone' : 'Mark all as done'}}</button>
+      <button type="button" (click)='allDelete();' class="btn btn-danger btn-sm mark-button" [hidden]='!bulkmode'>Delete selected</button>
+    </div>
+  </div>
+  <div class="tasks">
+    <app-task *ngFor="let task of tasks" [bulkmode]='bulkmode' [task]='task' [selectedTasks]="selectedTasks" (onDelete)='onDelete($event);'></app-task>
+  </div>
+</div>

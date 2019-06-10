@@ -1,0 +1,19 @@
+<app-toolbar></app-toolbar>
+
+<h1 class="text-center component-label">Task details</h1>
+<div class="row no-gutters">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mx-auto">
+    <div class="task card">
+      <p class="task-label"><b>Name</b></p>
+      <p class="card-title">{{task.name}}</p>
+      <p class="task-label"><b>Description </b></p>
+      <p>{{task.description}}</p>
+      <p class="task-time">{{task.created_at | date: 'short'}}</p>
+      <p><b>Status</b></p>
+      <p>{{task.done ? "Done" : "Undone"}}</p>
+      <div>
+        <button type="button" class="btn btn-primary" appBackButton>Back</button>
+      </div>
+    </div>
+  </div>
+</div>
